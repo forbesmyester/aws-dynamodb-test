@@ -1,0 +1,33 @@
+{
+  "name": "aws-dynamo-test",
+  "version": "0.9.0",
+  "description": "Place to look at how DynamoDB works",
+  "directories": {
+    "src": "src",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "find src test | grep '\\.ts$' | xargs -n 1 tslint && tsc && mocha --recursive --require source-map-support/register dest/test && node require-test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:forbesmyester/aws-dynamo-test.git"
+  },
+  "author": "Matthew Forrester <github.com@speechmarks.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/forbesmyester/aws-dynamo-test/issues"
+  },
+  "homepage": "https://github.com/forbesmyester/aws-dynamo-test",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^2.9.0",
+    "mocha": "^2.4.5",
+    "source-map-support": "^0.4.0",
+    "tslint": "^3.10.2",
+    "typescript": "^1.8.10",
+    "typings": "^0.8.1"
+  },
+  "dependencies": {
+  }
+}
