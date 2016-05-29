@@ -24,6 +24,11 @@ function awsPromiseWrap(ctx, func, ...params): Promise<any> {
 
 const TABLE_NAME = 'KeyboardwritescodeAdtUser';
 
+export function createSet(): any {
+    let dc = new AWS.DynamoDB.DocumentClient({});
+    return dc.createSet([1, 2, 3]);
+}
+
 export function addSomething(): Promise<any> {
     let dc = new AWS.DynamoDB.DocumentClient({});
 
@@ -42,7 +47,7 @@ export function addSomething(): Promise<any> {
                 userId: 'abc123',
                 email: 'abc123@abc123.com',
                 firstName: 'Matt',
-                lastName: 'Forrester the ' + new Date().getTime()
+                lastName: 'Forrester the ' + new Date().getTime(),
             }
         };
         return awsPromiseWrap(dc, dc.put, dcPut, 'put');
@@ -67,6 +72,18 @@ export function addSomething(): Promise<any> {
                 email: 'abc123@abc123.com'
             },
             AttributeUpdates: {
+                thingsWithWheels: {
+                    Action: 'PUT',
+                    Value: dc.createSet(
+                        [
+                            'SkateBoard',
+                            'Skates',
+                            'Mountain Bike',
+                            'Evolve Electric Skateboard'
+                        ],
+                        { validate: true }
+                    )
+                },
                 age: {
                     Action: 'PUT',
                     Value: 35
