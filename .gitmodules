@@ -1,0 +1,3 @@
+[submodule "my-externals/definitely-typed-aws-sdk"]
+	path = my-externals/definitely-typed-aws-sdk
+	url = git@github.com:forbesmyester/DefinitelyTyped.git
