@@ -11,10 +11,10 @@ function awsPromiseWrap(ctx, func, ...params): Promise<any> {
     let funcName = params.pop();
     return new Promise((resolve, reject) => {
         func.apply(ctx, params.concat([(err, data) => {
-            console.dir({
+            console.log({
                 called: funcName,
                 err: err,
-                data: data
+                data: JSON.stringify(data)
             });
             if (err) { return reject(err); }
             resolve(data);
@@ -47,7 +47,8 @@ export function addSomething(): Promise<any> {
                 userId: 'abc123',
                 email: 'abc123@abc123.com',
                 firstName: 'Matt',
-                lastName: 'Forrester the ' + new Date().getTime(),
+                counting: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+                lastName: 'Forrester the ' + new Date().getTime()
             }
         };
         return awsPromiseWrap(dc, dc.put, dcPut, 'put');

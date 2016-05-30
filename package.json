@@ -6,6 +6,7 @@
     "src": "src",
     "test": "test"
   },
+  "engines": { "node": ">=4.0.0" },
   "scripts": {
     "test": "find src test | grep '\\.ts$' | xargs -n 1 tslint && tsc && mocha --recursive --require source-map-support/register dest/test && node require-test.js"
   },

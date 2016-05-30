@@ -16,5 +16,4 @@ describe('Can', function() {
     it('can do the set thing', function() {
         console.log(Index.createSet());
     });
-
 });
